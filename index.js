@@ -12,14 +12,12 @@ connect.then(() => {
 
     console.log('Connected correctly to server');
 
-    //creating a new document based on the mongoose Model named campsite
-    const newCampsite = new Campsite({
+    //create method return a promise that resolves to the new document
+    Campsite.create({
         name: 'React Lake Campground',
         description: 'test'
-    });
-    //then we saving that document which will automatically save to the campsite's collection,
+    })
     //then we console.log that save document,so we expect here to see react lake campground logged as an object
-    newCampsite.save()
     .then(campsite => {
         console.log(campsite);
         //next we find and logged the docs instantiated from the campsite model,here we would expect to see
